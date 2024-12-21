@@ -89,7 +89,7 @@ class _EasyModeState extends State<EasyMode> {
             color: Colors.red[100],
             child: Column(
               children: [
-                SizedBox(height: screenHeight*0.15,),
+                SizedBox(height: screenHeight*0.07,),
                 Text("Remaining cards: ${52-index}",
                   style: CustomTextStyle.customText4,
                 ),
@@ -188,7 +188,7 @@ class _EasyModeState extends State<EasyMode> {
             color: Colors.red[100],
             child: Column(
               children: [
-                SizedBox(height: screenHeight*0.15,),
+                SizedBox(height: screenHeight*0.07,),
                 Text("Remaining cards: ${52-index}",
                   style: CustomTextStyle.customText4,
                 ),
@@ -287,7 +287,7 @@ class _EasyModeState extends State<EasyMode> {
             color: Colors.red[100],
             child: Column(
               children: [
-                SizedBox(height: screenHeight*0.15,),
+                SizedBox(height: screenHeight*0.07,),
                 Text("Remaining cards: ${52-index}",
                   style: CustomTextStyle.customText4,
                 ),
