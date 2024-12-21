@@ -222,7 +222,7 @@ class _ExtremeModeState extends State<ExtremeMode> {
                       ),
                       onPressed: () async {
                         if (index + 1 <= 52) {
-                          if (!_cards[index + 1].greaterThen(_cards[index])) {
+                          if (_cards[index + 1].lessThen(_cards[index])) {
                             currentState++;
                             index++;
                             imgUrl = 'assets/cards/${_cards[index]
