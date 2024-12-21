@@ -1,7 +1,11 @@
+import 'package:autobus_game/gamemodes/easy_mode.dart';
+import 'package:autobus_game/gamemodes/extreme_mode.dart';
 import 'package:autobus_game/shared/textstyles.dart';
 import 'package:autobus_game/widgets/how_to_play_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'gamemodes/hard_mode.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -45,7 +49,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         shape: StadiumBorder(),
                       backgroundColor: Colors.red[600],
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => EasyMode()));
+                    },
                     child: Text("Easy",
                       style: CustomTextStyle.customText4.apply(color: Colors.white),),
                   ),
@@ -55,7 +61,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       shape: StadiumBorder(),
                       backgroundColor: Colors.red[600],
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => HardMode()));
+                    },
                     child: Text("Hard",
                       style: CustomTextStyle.customText4.apply(color: Colors.white),),
                   ),
@@ -70,7 +78,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       shape: StadiumBorder(),
                       backgroundColor: Colors.red[600],
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => ExtremeMode()));
+                    },
                     child: Text("Extreme",
                       style: CustomTextStyle.customText4.apply(color: Colors.white),),
                   ),
