@@ -52,13 +52,13 @@ class _ExtremeModeState extends State<ExtremeMode> {
 
     //imgUrl = 'assets/cards/${testCard.getImgUrl()}';
     newDeck.createRandomDeck(imagePaths);
-    _cards = newDeck.getCards();
+    _cards = newDeck.getCards().cast<CardInfo>();
     //print(_cards);
   }
 
   void generateNewDeck() {
     newDeck.createRandomDeck(imagePaths);
-    _cards = newDeck.getCards();
+    _cards = newDeck.getCards().cast<CardInfo>();
   }
 
   int currentState = 0;
@@ -222,7 +222,7 @@ class _ExtremeModeState extends State<ExtremeMode> {
                       ),
                       onPressed: () async {
                         if (index + 1 <= 52) {
-                          if (!_cards[index + 1].greaterThen(_cards[index])) {
+                          if (_cards[index + 1].lessThen(_cards[index])) {
                             currentState++;
                             index++;
                             imgUrl = 'assets/cards/${_cards[index]
@@ -252,7 +252,7 @@ class _ExtremeModeState extends State<ExtremeMode> {
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         shape: StadiumBorder(),
-                        backgroundColor: Colors.black,
+                        backgroundColor: Colors.red,
                       ),
                       onPressed: () async {
                         if (index + 1 <= 52) {
@@ -314,6 +314,7 @@ class _ExtremeModeState extends State<ExtremeMode> {
                     10 ? (_cards[index-1].getNumber()) : ("${_cards[index-1]
                     .getNumber()}/${_cards[index-1].getActualNumber()}")} ?",
                   style: CustomTextStyle.customText4,
+                  textAlign: TextAlign.center,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -360,40 +361,7 @@ class _ExtremeModeState extends State<ExtremeMode> {
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         shape: StadiumBorder(),
-                        backgroundColor: Colors.black,
-                      ),
-                      onPressed: () async{
-                        if(index + 1 <= 52) {
-                          if(((_cards[index].getActualNumber()>=_cards[index-1].getActualNumber()) && (_cards[index+1].greaterThen(_cards[index-1]) && _cards[index+1].lessThen(_cards[index]))) ||
-                              ((_cards[index].getActualNumber()<_cards[index-1].getActualNumber()) && (_cards[index+1].greaterThen(_cards[index]) && _cards[index+1].lessThen(_cards[index+1])))
-                          ) {
-                            currentState++;
-                            index++;
-                            imgUrl = 'assets/cards/${_cards[index].getImgUrl()}';
-                          } else {
-                            currentState = 0;
-                            generateNewDeck();
-                            index = 0;
-                            imgUrl = 'assets/card_back_black.png';
-                            await Navigator.of(context).push(HeroDialogRoute(builder: (context) {
-                              return const WrongPopupCard();
-                            }));
-                          }
-                        } else {
-                          currentState = 4;
-                        }
-                        setState(() {
-
-                        });
-                      },
-                      child: Text("Between",
-                        style: CustomTextStyle.customText4.apply(color: Colors.white),),
-                    ),
-                    SizedBox(width: 20,),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        shape: StadiumBorder(),
-                        backgroundColor: Colors.black,
+                        backgroundColor: Colors.red,
                       ),
                       onPressed: () async{
                         if(index + 1 <= 52) {
@@ -421,6 +389,39 @@ class _ExtremeModeState extends State<ExtremeMode> {
                         style: CustomTextStyle.customText4.apply(color: Colors.white),),
                     ),
                   ],
+                ),
+                SizedBox(height: 10,),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: StadiumBorder(),
+                    backgroundColor: Colors.red,
+                  ),
+                  onPressed: () async{
+                    if(index + 1 <= 52) {
+                      if(((_cards[index].getActualNumber()>=_cards[index-1].getActualNumber()) && (_cards[index+1].greaterThen(_cards[index-1]) && _cards[index+1].lessThen(_cards[index]))) ||
+                          ((_cards[index].getActualNumber()<_cards[index-1].getActualNumber()) && (_cards[index+1].greaterThen(_cards[index]) && _cards[index+1].lessThen(_cards[index+1])))
+                      ) {
+                        currentState++;
+                        index++;
+                        imgUrl = 'assets/cards/${_cards[index].getImgUrl()}';
+                      } else {
+                        currentState = 0;
+                        generateNewDeck();
+                        index = 0;
+                        imgUrl = 'assets/card_back_black.png';
+                        await Navigator.of(context).push(HeroDialogRoute(builder: (context) {
+                          return const WrongPopupCard();
+                        }));
+                      }
+                    } else {
+                      currentState = 4;
+                    }
+                    setState(() {
+
+                    });
+                  },
+                  child: Text("Between",
+                    style: CustomTextStyle.customText4.apply(color: Colors.white),),
                 ),
               ],
             ),
