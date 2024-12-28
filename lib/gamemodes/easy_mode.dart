@@ -54,7 +54,7 @@ class _EasyModeState extends State<EasyMode> {
 
     //imgUrl = 'assets/cards/${testCard.getImgUrl()}';
     newDeck.createRandomDeck(imagePaths);
-    _cards = newDeck.getCards();
+    _cards = newDeck.getCards().cast<CardInfo>();
     //print(_cards);
   }
 
@@ -240,7 +240,7 @@ class _EasyModeState extends State<EasyMode> {
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         shape: StadiumBorder(),
-                        backgroundColor: Colors.black,
+                        backgroundColor: Colors.red,
                       ),
                       onPressed: () async{
                         if(index + 1 <= 52) {
