@@ -117,7 +117,7 @@ class _ExtremeModeState extends State<ExtremeMode> {
                         backgroundColor: Colors.red,
                       ),
                       onPressed: () async {
-                        if(index + 1 <= 52) {
+                        if(index + 1 <= 51) {
                           if(_cards[index+1].getColor() == "red") {
                             currentState++;
                             index++;
@@ -148,7 +148,7 @@ class _ExtremeModeState extends State<ExtremeMode> {
                         backgroundColor: Colors.black,
                       ),
                       onPressed: () async{
-                        if(index + 1 <= 52) {
+                        if(index + 1 <= 51) {
                           if(_cards[index+1].getColor() == "black") {
                             currentState++;
                             index++;
@@ -221,7 +221,7 @@ class _ExtremeModeState extends State<ExtremeMode> {
                         backgroundColor: Colors.red,
                       ),
                       onPressed: () async {
-                        if (index + 1 <= 52) {
+                        if (index + 1 <= 51) {
                           if (_cards[index + 1].lessThen(_cards[index])) {
                             currentState++;
                             index++;
@@ -255,7 +255,7 @@ class _ExtremeModeState extends State<ExtremeMode> {
                         backgroundColor: Colors.red,
                       ),
                       onPressed: () async {
-                        if (index + 1 <= 52) {
+                        if (index + 1 <= 51) {
                           if (_cards[index + 1].greaterThen(_cards[index])) {
                             currentState++;
                             index++;
@@ -333,7 +333,7 @@ class _ExtremeModeState extends State<ExtremeMode> {
                         backgroundColor: Colors.red,
                       ),
                       onPressed: () async {
-                        if(index + 1 <= 52) {
+                        if(index + 1 <= 51) {
                           if(_cards[index+1].lessThen(_cards[index]) && _cards[index+1].lessThen(_cards[index-1])) {
                             currentState++;
                             index++;
@@ -364,7 +364,7 @@ class _ExtremeModeState extends State<ExtremeMode> {
                         backgroundColor: Colors.red,
                       ),
                       onPressed: () async{
-                        if(index + 1 <= 52) {
+                        if(index + 1 <= 51) {
                           if(_cards[index+1].greaterThen(_cards[index]) && _cards[index+1].greaterThen(_cards[index-1])) {
                             currentState++;
                             index++;
@@ -397,7 +397,7 @@ class _ExtremeModeState extends State<ExtremeMode> {
                     backgroundColor: Colors.red,
                   ),
                   onPressed: () async{
-                    if(index + 1 <= 52) {
+                    if(index + 1 <= 51) {
                       if(((_cards[index].getActualNumber()>=_cards[index-1].getActualNumber()) && (_cards[index+1].greaterThen(_cards[index-1]) && _cards[index+1].lessThen(_cards[index]))) ||
                           ((_cards[index].getActualNumber()<_cards[index-1].getActualNumber()) && (_cards[index+1].greaterThen(_cards[index]) && _cards[index+1].lessThen(_cards[index+1])))
                       ) {
@@ -468,7 +468,7 @@ class _ExtremeModeState extends State<ExtremeMode> {
                         backgroundColor: Colors.red,
                       ),
                       onPressed: () async {
-                        if(index + 1 <= 52) {
+                        if(index + 1 <= 51) {
                           if(_cards[index+1].getSymbol() == "hearts") {
                             currentState++;
                             index++;
@@ -499,7 +499,7 @@ class _ExtremeModeState extends State<ExtremeMode> {
                         backgroundColor: Colors.black,
                       ),
                       onPressed: () async{
-                        if(index + 1 <= 52) {
+                        if(index + 1 <= 51) {
                           if(_cards[index+1].getSymbol() == "spades") {
                             currentState++;
                             index++;
@@ -535,7 +535,7 @@ class _ExtremeModeState extends State<ExtremeMode> {
                         backgroundColor: Colors.red,
                       ),
                       onPressed: () async {
-                        if(index + 1 <= 52) {
+                        if(index + 1 <= 51) {
                           if(_cards[index+1].getSymbol() == "diamonds") {
                             currentState++;
                             index++;
@@ -566,7 +566,7 @@ class _ExtremeModeState extends State<ExtremeMode> {
                         backgroundColor: Colors.black,
                       ),
                       onPressed: () async{
-                        if(index + 1 <= 52) {
+                        if(index + 1 <= 51) {
                           if(_cards[index+1].getSymbol() == "clubs") {
                             currentState++;
                             index++;

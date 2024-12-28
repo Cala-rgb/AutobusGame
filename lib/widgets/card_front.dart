@@ -21,7 +21,7 @@ class CardFront extends StatelessWidget {
       height: CARD_HEIGHT,
       decoration: BoxDecoration(
         color: Colors.black54,
-        borderRadius: BorderRadius.circular(4.0),
+        borderRadius: BorderRadius.circular(10.0),
         image: DecorationImage(
           image: AssetImage(imageURL,),
           fit: BoxFit.cover,
